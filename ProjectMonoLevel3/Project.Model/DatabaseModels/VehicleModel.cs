@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
-using Project.Model.Common.Interfaces;
+using Project.Model.Common;
 
 namespace Project.Model.DatabaseModels
 {

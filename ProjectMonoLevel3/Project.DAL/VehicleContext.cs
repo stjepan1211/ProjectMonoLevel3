@@ -9,7 +9,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Project.DAL
 {
-    class VehicleContext : DbContext
+    public class VehicleContext : DbContext
     {
         private static VehicleContext Instance;
         public VehicleContext() : base("VehicleContext")

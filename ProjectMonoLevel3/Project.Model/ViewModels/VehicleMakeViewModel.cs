@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Project.Model.Common.Interfaces;
+using Project.Model.Common;
 using Project.Model.DatabaseModels;
 
 namespace Project.Model.ViewModels

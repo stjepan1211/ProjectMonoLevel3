@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Model.Common.Interfaces
+namespace Project.Model.Common
 {
-    public interface IVehicleMake
+    public interface IVehicleMakeViewModel
     {
         Guid VehicleMakeId { get; set; }
         string Name { get; set; }

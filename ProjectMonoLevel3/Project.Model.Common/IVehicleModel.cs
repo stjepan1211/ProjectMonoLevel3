@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Model.Common.Interfaces
+namespace Project.Model.Common
 {
     public interface IVehicleModel
     {
