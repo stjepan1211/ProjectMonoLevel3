@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +278,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -288,6 +290,32 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.DAL\Project.DAL.csproj">
+      <Project>{81795689-0558-4c92-b679-abd9c6d20ccc}</Project>
+      <Name>Project.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model\Project.Model.csproj">
+      <Project>{5b3df070-89c5-436b-88bc-e61e00d7ad6b}</Project>
+      <Name>Project.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Repository.Common\Project.Repository.Common.csproj">
+      <Project>{9bb9ce75-33cd-40cd-8c9a-9e6b9a17d72c}</Project>
+      <Name>Project.Repository.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Repository\Project.Repository.csproj">
+      <Project>{c4f0359e-1946-49f7-b94c-a11add8be4f5}</Project>
+      <Name>Project.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Service.Common\Project.Service.Common.csproj">
+      <Project>{bf0f4ab3-13a8-43c4-bed5-096e77e2c6a9}</Project>
+      <Name>Project.Service.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Service\Project.Service.csproj">
+      <Project>{fb36730b-7e72-4ae9-acf9-a879c608225c}</Project>
+      <Name>Project.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

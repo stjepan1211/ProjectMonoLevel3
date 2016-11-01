@@ -9,17 +9,13 @@ using Project.DAL;
 
 namespace Project.Repository.Repositories
 {
-    public class VehicleMakeRepository : GenerycRepository<VehicleMake>, IVehickeMakeRepository
+    public class VehicleMakeRepository : GenerycRepository<VehicleMake>, IVehicleMakeRepository
     {
         public VehicleMakeRepository(VehicleContext vehicleContext) : base(vehicleContext)
         {
         }
-        public VehicleContext VehicleContext { get { return Context as VehicleContext; } }
+        //public VehicleContext VehicleContext { get { return _context as VehicleContext; } }
 
-        public IEnumerable<VehicleMake> GetPagedVehicleMake(int pageIndex, int pageSize)
-        {
-            //potrebno koristiti paged list
-            return VehicleContext.VehicleMake.ToList();
-        }
+
     }
 }

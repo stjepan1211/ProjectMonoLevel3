@@ -12,56 +12,52 @@ namespace Project.Repository.Repositories
 {
     public class GenerycRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext Context;
+        protected readonly DbContext _context;
 
         public GenerycRepository(DbContext context)
         {
-            this.Context = context;
+            _context = context;
         }
 
-        public TEntity Get(Guid id)
+        public async Task<TEntity> FindById(Guid id)
         {
-            return Context.Set<TEntity>().Find(id);
+            return await _context.Set<TEntity>().FindAsync(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
-            return Context.Set<TEntity>().ToList();
+            return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public void Add(TEntity tEntity)
+        public void Insert(TEntity tEntity)
         {
-            Context.Set<TEntity>().Add(tEntity);
+            _context.Set<TEntity>().Add(tEntity);
         }
 
-        public void AddRange(IEnumerable<TEntity> tEntities)
+        public void InsertRange(IEnumerable<TEntity> tEntities)
         {
-            Context.Set<TEntity>().AddRange(tEntities);
+            _context.Set<TEntity>().AddRange(tEntities);
         }
 
-        public void Remove(TEntity tEntity)
+        public void Delete(TEntity tEntity)
         {
-            Context.Set<TEntity>().Remove(tEntity);
+            //potrebno je prvo nac entity preko id-a i poslati ga
+            _context.Set<TEntity>().Remove(tEntity);
         }
 
-        public void RemoveRange(IEnumerable<TEntity> tEntities)
+        public void DeleteRange(IEnumerable<TEntity> tEntities)
         {
-            Context.Set<TEntity>().RemoveRange(tEntities);
+            _context.Set<TEntity>().RemoveRange(tEntities);
         }
 
-        public void Edit(TEntity tEntity)
+        public void Update(TEntity tEntity)
         {
-            Context.Entry<TEntity>(tEntity).State = EntityState.Modified;
+            _context.Entry<TEntity>(tEntity).State = EntityState.Modified;
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public async Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
-            return Context.Set<TEntity>().Where(predicate);
-        }
-
-        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Context.Set<TEntity>().SingleOrDefault(predicate);
+            return await _context.Set<TEntity>().SingleOrDefaultAsync(predicate);
         }
     }
 }

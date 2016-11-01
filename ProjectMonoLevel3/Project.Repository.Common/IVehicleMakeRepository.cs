@@ -7,8 +7,8 @@ using Project.Model.DatabaseModels;
 
 namespace Project.Repository.Common
 {
-    public interface IVehickeMakeRepository : IGenericRepository<VehicleMake>
+    public interface IVehicleMakeRepository : IGenericRepository<VehicleMake>
     {
-        IEnumerable<VehicleMake> GetPagedVehicleMake(int pageIndex, int pageSize);
+        //Task<IEnumerable<VehicleMake>> GetPagedVehicleMake(int pageIndex, int pageSize);
     }
 }

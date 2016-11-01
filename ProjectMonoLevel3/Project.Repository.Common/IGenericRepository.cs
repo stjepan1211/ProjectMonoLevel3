@@ -9,23 +9,20 @@ namespace Project.Repository.Common
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        TEntity Get(Guid id);
+        Task<TEntity> FindById(Guid id);
 
-        IEnumerable<TEntity> GetAll();
+        Task<IEnumerable<TEntity>> GetAll();
 
-        void Add(TEntity tEntity);
+        void Insert(TEntity tEntity);
 
-        void AddRange(IEnumerable<TEntity> tEntities);
+        void InsertRange(IEnumerable<TEntity> tEntities);
 
-        void Remove(TEntity tEntity);
+        void Delete(TEntity tEntity);
 
-        void RemoveRange(IEnumerable<TEntity> tEntities);
+        void DeleteRange(IEnumerable<TEntity> tEntities);
 
-        void Edit(TEntity tEntity);
+        void Update(TEntity tEntity);
 
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
-
-        TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
-
+        Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
     }
 }

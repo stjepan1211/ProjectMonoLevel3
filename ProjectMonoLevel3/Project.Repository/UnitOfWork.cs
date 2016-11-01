@@ -12,6 +12,7 @@ namespace Project.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly VehicleContext context;
+        private bool disposed;
 
         public UnitOfWork(VehicleContext context)
         {
@@ -20,7 +21,7 @@ namespace Project.Repository
             VehicleModels = new VehicleModelRepository(context);
         }
 
-        public IVehickeMakeRepository VehicleMakes { get; private set; }
+        public IVehicleMakeRepository VehicleMakes { get; private set; }
         public IVehicleModelRepository VehicleModels { get; private set; }
 
         public int Complete()
@@ -30,7 +31,20 @@ namespace Project.Repository
 
         public void Dispose()
         {
-            context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        
+        public virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            disposed = true;
         }
     }
 }

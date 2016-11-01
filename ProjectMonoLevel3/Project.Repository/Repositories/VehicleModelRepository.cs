@@ -15,12 +15,12 @@ namespace Project.Repository.Repositories
         {
         }
 
-        public VehicleContext VehicleContext { get { return Context as VehicleContext; } }
+        //public VehicleContext VehicleContext { get { return _context as VehicleContext; } }
 
-        public IEnumerable<VehicleModel> GetPagedVehicleModel(int pageIndex, int pageSize)
-        {
-            return VehicleContext.VehicleModel.ToList();
-        }
+        //public async IEnumerable<VehicleModel> GetPagedVehicleModel(int pageIndex, int pageSize)
+        //{
+        //    return VehicleContext.VehicleModel.ToList();
+        //}
 
     }
 }

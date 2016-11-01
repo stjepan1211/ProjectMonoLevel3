@@ -29,5 +29,7 @@ namespace Project.Mvc.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Project.Model.DatabaseModels.VehicleMake> VehicleMakes { get; set; }
     }
 }

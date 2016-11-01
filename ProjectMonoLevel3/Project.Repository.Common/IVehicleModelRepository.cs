@@ -9,6 +9,6 @@ namespace Project.Repository.Common
 {
     public interface IVehicleModelRepository : IGenericRepository<VehicleModel>
     {
-        IEnumerable<VehicleModel> GetPagedVehicleModel(int pageIndex, int pageSize);
+        //Task<IEnumerable<VehicleModel>> GetPagedVehicleModel(int pageIndex, int pageSize);
     }
 }

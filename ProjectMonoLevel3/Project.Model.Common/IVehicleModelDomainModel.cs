@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Model.Common
 {
-    public interface IVehicleModelViewModel
+    public interface IVehicleModelDomainModel
     {
         Guid VehicleModelId { get; set; }
         Guid VehicleMakeId { get; set; }
