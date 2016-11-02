@@ -1,8 +1,12 @@
-﻿using Microsoft.Owin;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Project.Mvc.Startup))]
-namespace Project.Mvc
+[assembly: OwinStartup(typeof(Project.MVC.Startup))]
+
+namespace Project.MVC
 {
     public partial class Startup
     {

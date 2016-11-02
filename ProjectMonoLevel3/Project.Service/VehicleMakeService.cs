@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.Repository.Common;
-using Project.Model.DatabaseModels;
+using Project.Model.Common;
 using Project.Service.Common;
+using Project.Model;
+using Project.Model.DatabaseModels;
 
 namespace Project.Service
 {
@@ -18,30 +20,30 @@ namespace Project.Service
             this.vehicleMakeRepository = vmkrep;
         }
 
-        public async Task<IEnumerable<VehicleMake>> GetVehicleMakes()
+        //Add
+        public void AddVehicleMake(IVehicleMake vehicleMake)
         {
-            return await vehicleMakeRepository.GetAll();
+            vehicleMakeRepository.Add(vehicleMake);
         }
-
-        public void AddVehicleMake(VehicleMake vehicleMake)
+        //Get
+        public async Task<IVehicleMake> FindVehicleMake(Guid id)
         {
-            vehicleMakeRepository.Insert(vehicleMake);
+            return await vehicleMakeRepository.Get(id);
         }
-
-        public async Task<VehicleMake> FindVehicleMake(Guid id)
-        {
-            return await vehicleMakeRepository.FindById(id);
-        }
-
-        public void EditVehicleMake(VehicleMake vehicleMake)
+        //Update
+        public void EditVehicleMake(IVehicleMake vehicleMake)
         {
             vehicleMakeRepository.Update(vehicleMake);
         }
-
-        public void DeleteVehicleMake(VehicleMake vehicleMake)
+        //Delete
+        public void DeleteVehicleMake(Guid id)
         {
-            vehicleMakeRepository.Delete(vehicleMake);
+            vehicleMakeRepository.Delete(id);
         }
-
+        //GetAll
+        public async Task<IEnumerable<IVehicleMake>> GetVehicleMakes()
+        {
+            return await vehicleMakeRepository.GetAll();
+        }
     }
 }

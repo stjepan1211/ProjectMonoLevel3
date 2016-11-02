@@ -7,57 +7,54 @@ using Project.DAL;
 using System.Data.Entity;
 using Project.Repository.Common;
 using System.Linq.Expressions;
+using Project.DAL.Common;
+using System.Data.Entity.Infrastructure;
 
 namespace Project.Repository.Repositories
 {
-    public class GenerycRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenerycRepository : IGenericRepository
     {
-        protected readonly DbContext _context;
+        protected readonly IVehicleContext _context;
 
-        public GenerycRepository(DbContext context)
+        public GenerycRepository(IVehicleContext context)
         {
             _context = context;
         }
 
-        public async Task<TEntity> FindById(Guid id)
+        //Add
+        public async Task<int> Add<T>(T entity) where T : class
         {
-            return await _context.Set<TEntity>().FindAsync(id);
+            _context.Set<T>().Add(entity);
+            return await _context.SaveChangesAsync();
         }
-
-        public async Task<IEnumerable<TEntity>> GetAll()
+        //Get
+        public async Task<T> Get<T>(Guid id) where T : class
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            return await _context.Set<T>().FindAsync(id);
         }
-
-        public void Insert(TEntity tEntity)
+        //Delete
+        public async Task<int> Delete<T>(Guid id) where T : class
         {
-            _context.Set<TEntity>().Add(tEntity);
+            T entity = await Get<T>(id);
+            _context.Set<T>().Remove(entity);
+            return await _context.SaveChangesAsync();
         }
-
-        public void InsertRange(IEnumerable<TEntity> tEntities)
+        //Update
+        public async Task<int> Update<T>(T entity) where T : class
         {
-            _context.Set<TEntity>().AddRange(tEntities);
+            DbEntityEntry entry = _context.Entry(entity);
+
+            if (entry.State == EntityState.Detached)
+                _context.Set<T>().Attach(entity);
+
+            entry.State = EntityState.Modified;
+
+            return await _context.SaveChangesAsync();
         }
-
-        public void Delete(TEntity tEntity)
+        //GetAll
+        public async Task<IEnumerable<T>> GetAll<T>() where T : class
         {
-            //potrebno je prvo nac entity preko id-a i poslati ga
-            _context.Set<TEntity>().Remove(tEntity);
-        }
-
-        public void DeleteRange(IEnumerable<TEntity> tEntities)
-        {
-            _context.Set<TEntity>().RemoveRange(tEntities);
-        }
-
-        public void Update(TEntity tEntity)
-        {
-            _context.Entry<TEntity>(tEntity).State = EntityState.Modified;
-        }
-
-        public async Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
-        {
-            return await _context.Set<TEntity>().SingleOrDefaultAsync(predicate);
+            return await _context.Set<T>().ToListAsync();
         }
     }
 }

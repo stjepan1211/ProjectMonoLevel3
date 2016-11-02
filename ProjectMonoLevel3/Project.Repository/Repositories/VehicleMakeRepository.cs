@@ -6,16 +6,43 @@ using System.Threading.Tasks;
 using Project.Repository.Common;
 using Project.Model.DatabaseModels;
 using Project.DAL;
+using Project.DAL.Common;
+using Project.Model.Common;
 
 namespace Project.Repository.Repositories
 {
-    public class VehicleMakeRepository : GenerycRepository<VehicleMake>, IVehicleMakeRepository
+    public class VehicleMakeRepository : IVehicleMakeRepository
     {
-        public VehicleMakeRepository(VehicleContext vehicleContext) : base(vehicleContext)
+        private IGenericRepository _genericRepository;
+
+        public VehicleMakeRepository(IGenericRepository genericRepository)
         {
+            _genericRepository = genericRepository;
         }
-        //public VehicleContext VehicleContext { get { return _context as VehicleContext; } }
-
-
+        //Add
+        public async Task<int> Add(IVehicleMake entity)
+        {
+            return await _genericRepository.Add<VehicleMake>((VehicleMake)entity);
+        }
+        //Get
+        public async Task<IVehicleMake> Get(Guid id)
+        {
+            return await _genericRepository.Get<VehicleMake>(id);
+        }
+        //Update
+        public async Task<int> Update(IVehicleMake entity)
+        {
+            return await _genericRepository.Update<VehicleMake>((VehicleMake)entity);
+        }
+        //Delete
+        public async Task<int> Delete(Guid id)
+        {
+            return await _genericRepository.Delete<VehicleMake>(id);
+        }
+        //GetAll
+        public async Task<IEnumerable<IVehicleMake>> GetAll()
+        {
+            return await _genericRepository.GetAll<VehicleMake>();
+        }
     }
 }

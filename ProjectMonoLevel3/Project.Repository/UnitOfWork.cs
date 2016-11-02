@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Project.DAL;
+using Project.DAL.Common;
 using Project.Repository.Common;
 using Project.Repository.Repositories;
 
@@ -11,22 +11,17 @@ namespace Project.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly VehicleContext context;
+        private readonly IVehicleContext context;
         private bool disposed;
 
-        public UnitOfWork(VehicleContext context)
+        public UnitOfWork(IVehicleContext context)
         {
             this.context = context;
-            VehicleMakes = new VehicleMakeRepository(context);
-            VehicleModels = new VehicleModelRepository(context);
         }
 
-        public IVehicleMakeRepository VehicleMakes { get; private set; }
-        public IVehicleModelRepository VehicleModels { get; private set; }
-
-        public int Complete()
+        public async Task<int> Complete()
         {
-            return context.SaveChanges();
+            return await context.SaveChangesAsync();
         }
 
         public void Dispose()

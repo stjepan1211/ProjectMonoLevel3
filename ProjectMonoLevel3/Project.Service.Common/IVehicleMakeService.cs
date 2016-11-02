@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Project.Model.DatabaseModels;
+using Project.Model.Common;
 
 namespace Project.Service.Common
 {
     public interface IVehicleMakeService
     {
-        void AddVehicleMake(VehicleMake vehicleMake);
+        void AddVehicleMake(IVehicleMake vehicleMake);
 
-        Task<VehicleMake> FindVehicleMake(Guid id);
+        Task<IVehicleMake> FindVehicleMake(Guid id);
 
-        void EditVehicleMake(VehicleMake vehicleMake);
+        void EditVehicleMake(IVehicleMake vehicleMake);
 
-        void DeleteVehicleMake(VehicleMake vehicleMake);
+        void DeleteVehicleMake(Guid id);
 
-        Task<IEnumerable<VehicleMake>> GetVehicleMakes();
+        Task<IEnumerable<IVehicleMake>> GetVehicleMakes();
     }
 }

@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.Model.DatabaseModels;
+using Project.Model.Common;
 
 namespace Project.Repository.Common
 {
-    public interface IVehicleModelRepository : IGenericRepository<VehicleModel>
+    public interface IVehicleModelRepository
     {
-        //Task<IEnumerable<VehicleModel>> GetPagedVehicleModel(int pageIndex, int pageSize);
+        Task<int> Add(IVehicleModel entity);
+        Task<IVehicleModel> Get(Guid id);
+        Task<int> Update(IVehicleModel entity);
+        Task<int> Delete(Guid id);
+        Task<IEnumerable<IVehicleModel>> GetAll();
     }
 }

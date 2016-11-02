@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Project.Model.DatabaseModels;
+using Project.Model.Common;
 using Project.Repository.Common;
 using Project.Service.Common;
 
@@ -17,31 +17,30 @@ namespace Project.Service
         {
             this.vehicleModelRepository = vmlrep;
         }
-
-        public async Task<IEnumerable<VehicleModel>> GetVehicleModels()
+        //Add
+        public void AddVehicleModel(IVehicleModel vehicleModel)
         {
-            return await vehicleModelRepository.GetAll();
+            vehicleModelRepository.Add(vehicleModel);
         }
-
-        public void AddVehicleModel(VehicleModel vehicleModel)
+        //Get
+        public async Task<IVehicleModel> FindVehicleModel(Guid id)
         {
-            vehicleModelRepository.Insert(vehicleModel);
+            return await vehicleModelRepository.Get(id);
         }
-
-        public async Task<VehicleModel> FindVehicleModel(Guid id)
-        {
-            return await vehicleModelRepository.FindById(id);
-        }
-
-        public void EditVehicleModel(VehicleModel vehicleModel)
+        //Update
+        public void EditVehicleModel(IVehicleModel vehicleModel)
         {
             vehicleModelRepository.Update(vehicleModel);
         }
-
-        public void DeleteVehicleModel(VehicleModel vehicleModel)
+        //Delete
+        public void DeleteVehicleModel(Guid id)
         {
-            vehicleModelRepository.Delete(vehicleModel);
+            vehicleModelRepository.Delete(id);
         }
-
+        //GetAll
+        public async Task<IEnumerable<IVehicleModel>> GetVehicleModels()
+        {
+            return await vehicleModelRepository.GetAll();
+        }
     }
 }

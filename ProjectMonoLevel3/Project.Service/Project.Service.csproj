@@ -45,6 +45,10 @@
     <Compile Include="VehicleModelService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Project.Model.Common\Project.Model.Common.csproj">
+      <Project>{2a7ce0d6-2b53-4957-a2ce-2e0bcf4c9abd}</Project>
+      <Name>Project.Model.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
       <Project>{5b3df070-89c5-436b-88bc-e61e00d7ad6b}</Project>
       <Name>Project.Model</Name>

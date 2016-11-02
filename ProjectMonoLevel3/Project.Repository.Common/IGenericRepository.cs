@@ -4,25 +4,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Project.Model.Common;
 
 namespace Project.Repository.Common
 {
-    public interface IGenericRepository<TEntity> where TEntity : class
+    public interface IGenericRepository
     {
-        Task<TEntity> FindById(Guid id);
-
-        Task<IEnumerable<TEntity>> GetAll();
-
-        void Insert(TEntity tEntity);
-
-        void InsertRange(IEnumerable<TEntity> tEntities);
-
-        void Delete(TEntity tEntity);
-
-        void DeleteRange(IEnumerable<TEntity> tEntities);
-
-        void Update(TEntity tEntity);
-
-        Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
+        Task<int> Add<T>(T entity) where T : class;
+        Task<T> Get<T>(Guid id) where T : class;
+        Task<int> Update<T>(T entity) where T : class;
+        Task<int> Delete<T>(Guid id) where T : class;
+        Task<IEnumerable<T>> GetAll<T>() where T : class;
     }
 }

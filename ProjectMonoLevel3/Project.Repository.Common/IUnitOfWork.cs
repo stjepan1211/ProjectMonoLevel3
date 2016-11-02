@@ -8,8 +8,9 @@ namespace Project.Repository.Common
 {
     public interface IUnitOfWork : IDisposable
     {
-        IVehicleMakeRepository VehicleMakes { get; }
-        IVehicleModelRepository VehicleModels { get; }
-        int Complete();
+        Task<int> Complete();
+        void Dispose(bool disposing);
+        void Dispose();
+
     }
 }
