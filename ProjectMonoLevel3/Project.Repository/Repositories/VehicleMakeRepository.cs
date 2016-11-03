@@ -8,6 +8,8 @@ using Project.Model.DatabaseModels;
 using Project.DAL;
 using Project.DAL.Common;
 using Project.Model.Common;
+using AutoMapper;
+using Project.Model.DomainModels;
 
 namespace Project.Repository.Repositories
 {
@@ -20,19 +22,19 @@ namespace Project.Repository.Repositories
             _genericRepository = genericRepository;
         }
         //Add
-        public async Task<int> Add(IVehicleMake entity)
+        public async Task<int> Add(IVehicleMakeDomainModel entity)
         {
-            return await _genericRepository.Add<VehicleMake>((VehicleMake)entity);
+            return await _genericRepository.Add<VehicleMake>(Mapper.Map<VehicleMake>(entity));
         }
         //Get
-        public async Task<IVehicleMake> Get(Guid id)
+        public async Task<IVehicleMakeDomainModel> Get(Guid id)
         {
-            return await _genericRepository.Get<VehicleMake>(id);
+            return Mapper.Map<VehicleMakeDomainModel>(await _genericRepository.Get<VehicleMake>(id));
         }
         //Update
-        public async Task<int> Update(IVehicleMake entity)
+        public async Task<int> Update(IVehicleMakeDomainModel entity)
         {
-            return await _genericRepository.Update<VehicleMake>((VehicleMake)entity);
+            return await _genericRepository.Update<VehicleMake>(Mapper.Map<VehicleMake>(entity));
         }
         //Delete
         public async Task<int> Delete(Guid id)
@@ -40,9 +42,9 @@ namespace Project.Repository.Repositories
             return await _genericRepository.Delete<VehicleMake>(id);
         }
         //GetAll
-        public async Task<IEnumerable<IVehicleMake>> GetAll()
+        public async Task<IEnumerable<IVehicleMakeDomainModel>> GetAll()
         {
-            return await _genericRepository.GetAll<VehicleMake>();
+            return Mapper.Map<IEnumerable<VehicleMakeDomainModel>>(await _genericRepository.GetAll<VehicleMake>());
         }
     }
 }

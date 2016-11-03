@@ -3,30 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Project.Service.Common;
 using System.Threading.Tasks;
+using Project.Service.Common;
 
-namespace Project.MVC.Controllers
+namespace Project.MVC_WebAPI.Controllers
 {
     public class HomeController : Controller
     {
-        private IVehicleMakeService makeService;
-
-        public HomeController(IVehicleMakeService makeService)
+        private IVehicleMakeService vmkservice;
+        public HomeController(IVehicleMakeService vmkservice)
         {
-            this.makeService = makeService;
+            this.vmkservice = vmkservice;
         }
-
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
 
             return View();
         }
-
         public async Task<ActionResult> MyIndex()
         {
-            return View(await makeService.GetVehicleMakes());
+            return View(await vmkservice.GetVehicleMakes());
         }
     }
 }

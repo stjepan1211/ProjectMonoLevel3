@@ -10,10 +10,10 @@ namespace Project.Repository.Common
 {
     public interface IVehicleMakeRepository
     {
-        Task<int> Add(IVehicleMake entity);
-        Task<IVehicleMake> Get(Guid id);
-        Task<int> Update(IVehicleMake entity);
+        Task<int> Add(IVehicleMakeDomainModel entity);
+        Task<IVehicleMakeDomainModel> Get(Guid id);
+        Task<int> Update(IVehicleMakeDomainModel entity);
         Task<int> Delete(Guid id);
-        Task<IEnumerable<IVehicleMake>> GetAll();
+        Task<IEnumerable<IVehicleMakeDomainModel>> GetAll();
     }
 }

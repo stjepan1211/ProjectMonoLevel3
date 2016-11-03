@@ -9,14 +9,14 @@ namespace Project.Service.Common
 {
     public interface IVehicleModelService
     {
-        void AddVehicleModel(IVehicleModel vehicleModel);
+        void AddVehicleModel(IVehicleModelDomainModel vehicleModel);
 
-        Task<IVehicleModel> FindVehicleModel(Guid id);
+        Task<IVehicleModelDomainModel> FindVehicleModel(Guid id);
 
-        void EditVehicleModel(IVehicleModel vehicleModel);
+        void EditVehicleModel(IVehicleModelDomainModel vehicleModel);
 
         void DeleteVehicleModel(Guid id);
 
-        Task<IEnumerable<IVehicleModel>> GetVehicleModels();
+        Task<IEnumerable<IVehicleModelDomainModel>> GetVehicleModels();
     }
 }
