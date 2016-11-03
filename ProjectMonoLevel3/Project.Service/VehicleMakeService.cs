@@ -21,9 +21,9 @@ namespace Project.Service
         }
 
         //Add
-        public void AddVehicleMake(IVehicleMakeDomainModel vehicleMake)
+        public async Task<int> AddVehicleMake(IVehicleMakeDomainModel vehicleMake)
         {
-            vehicleMakeRepository.Add(vehicleMake);
+           return await vehicleMakeRepository.Add(vehicleMake);
         }
         //Get
         public async Task<IVehicleMakeDomainModel> FindVehicleMake(Guid id)
@@ -31,14 +31,14 @@ namespace Project.Service
             return await vehicleMakeRepository.Get(id);
         }
         //Update
-        public void EditVehicleMake(IVehicleMakeDomainModel vehicleMake)
+        public async Task<int> EditVehicleMake(IVehicleMakeDomainModel vehicleMake)
         {
-            vehicleMakeRepository.Update(vehicleMake);
+            return await vehicleMakeRepository.Update(vehicleMake);
         }
         //Delete
-        public void DeleteVehicleMake(Guid id)
+        public async Task<int> DeleteVehicleMake(Guid id)
         {
-            vehicleMakeRepository.Delete(id);
+            return await vehicleMakeRepository.Delete(id);
         }
         //GetAll
         public async Task<IEnumerable<IVehicleMakeDomainModel>> GetVehicleMakes()

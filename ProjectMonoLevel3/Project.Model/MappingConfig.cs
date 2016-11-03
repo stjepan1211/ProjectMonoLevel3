@@ -26,6 +26,7 @@ namespace Project.Model
                 config.CreateMap<VehicleModel, IVehicleModelDomainModel>().ReverseMap();
                 config.CreateMap<VehicleModel, IVehicleModel>().ReverseMap();
                 config.CreateMap<IVehicleModel, IVehicleModelDomainModel>().ReverseMap();
+                config.CreateMap<VehicleModel, IVehicleModelViewModel>().ReverseMap();
 
                 config.CreateMap<VehicleModelDomainModel, VehicleModelViewModel>().ReverseMap();
                 config.CreateMap<VehicleModelDomainModel, IVehicleModelViewModel>().ReverseMap();

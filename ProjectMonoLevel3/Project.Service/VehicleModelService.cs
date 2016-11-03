@@ -18,9 +18,9 @@ namespace Project.Service
             this.vehicleModelRepository = vmlrep;
         }
         //Add
-        public void AddVehicleModel(IVehicleModelDomainModel vehicleModel)
+        public async Task<int> AddVehicleModel(IVehicleModelDomainModel vehicleModel)
         {
-            vehicleModelRepository.Add(vehicleModel);
+            return await vehicleModelRepository.Add(vehicleModel);
         }
         //Get
         public async Task<IVehicleModelDomainModel> FindVehicleModel(Guid id)
@@ -28,14 +28,14 @@ namespace Project.Service
             return await vehicleModelRepository.Get(id);
         }
         //Update
-        public void EditVehicleModel(IVehicleModelDomainModel vehicleModel)
+        public async Task<int> EditVehicleModel(IVehicleModelDomainModel vehicleModel)
         {
-            vehicleModelRepository.Update(vehicleModel);
+            return await vehicleModelRepository.Update(vehicleModel);
         }
         //Delete
-        public void DeleteVehicleModel(Guid id)
+        public async Task<int> DeleteVehicleModel(Guid id)
         {
-            vehicleModelRepository.Delete(id);
+            return await vehicleModelRepository.Delete(id);
         }
         //GetAll
         public async Task<IEnumerable<IVehicleModelDomainModel>> GetVehicleModels()

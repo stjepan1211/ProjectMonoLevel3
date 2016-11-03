@@ -9,6 +9,7 @@ using Project.Repository.Common;
 using System.Linq.Expressions;
 using Project.DAL.Common;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 
 namespace Project.Repository.Repositories
 {
@@ -42,13 +43,7 @@ namespace Project.Repository.Repositories
         //Update
         public async Task<int> Update<T>(T entity) where T : class
         {
-            DbEntityEntry entry = _context.Entry(entity);
-
-            if (entry.State == EntityState.Detached)
-                _context.Set<T>().Attach(entity);
-
-            entry.State = EntityState.Modified;
-
+            _context.Set<T>().AddOrUpdate(entity);
             return await _context.SaveChangesAsync();
         }
         //GetAll
