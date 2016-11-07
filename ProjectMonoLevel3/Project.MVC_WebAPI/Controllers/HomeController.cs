@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using Project.Service.Common;
+using Project.Model.ViewModels;
 
 namespace Project.MVC_WebAPI.Controllers
 {
@@ -23,7 +24,7 @@ namespace Project.MVC_WebAPI.Controllers
         }
         public async Task<ActionResult> MyIndex()
         {
-            return View(await vmkservice.GetVehicleMakes());
+            return View(AutoMapper.Mapper.Map<IEnumerable<VehicleMakeViewModel>>((await vmkservice.GetVehicleMakes())));
         }
     }
 }

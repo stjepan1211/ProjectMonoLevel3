@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Scripts/angular.min.js"></script>
+</head>
+
+<body ng-app="vehicleApp">
+    <div class="navbar row" style="margin-top:10px">
+        <div class="col-md-offset-1">
+            <div>
+                <a>Makers</a>
+                <a>Models</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-bordered table-hover" ng-controller="vehicleMakeController">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Name</th>
+                    <th>Abrv</th>
+                    <th>Edit, Update and Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vehicleMakes">
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Abrv}}</td>
+                    <td>
+                        <a>Edit</a>
+                        <a>Update</a>
+                        <a>Delete</a>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <script src="../js/app.js"></script>
+    <script src="../controllers/vehicleMakeController.js"></script>
+    <script src="../controllers/vehicleModelController.js"></script>
+</body>
+</html>
