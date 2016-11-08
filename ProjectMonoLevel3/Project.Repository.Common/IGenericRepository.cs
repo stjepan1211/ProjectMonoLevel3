@@ -15,5 +15,6 @@ namespace Project.Repository.Common
         Task<int> Update<T>(T entity) where T : class;
         Task<int> Delete<T>(Guid id) where T : class;
         Task<IEnumerable<T>> GetAll<T>() where T : class;
+        IQueryable<T> GetWhere<T>() where T : class;
     }
 }

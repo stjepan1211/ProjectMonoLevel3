@@ -10,6 +10,7 @@ using Project.DAL.Common;
 using Project.Model.Common;
 using AutoMapper;
 using Project.Model.DomainModels;
+using System.Data.Entity;
 
 namespace Project.Repository.Repositories
 {
@@ -44,7 +45,17 @@ namespace Project.Repository.Repositories
         //GetAll
         public async Task<IEnumerable<IVehicleModelDomainModel>> GetAll()
         {
-            return Mapper.Map<IEnumerable<VehicleModelDomainModel>>(await _genericRepository.GetAll<VehicleModel>());
+            //var response = Mapper.Map<IEnumerable<IVehicleModelDomainModel>>(await _genericRepository.GetAll<VehicleModel>());
+            //return response;
+            try
+            {
+                var response = Mapper.Map<IEnumerable<IVehicleModelDomainModel>>(await _genericRepository.GetWhere<VehicleModel>().Include(d => d.VehicleMake).ToListAsync());
+                return response;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

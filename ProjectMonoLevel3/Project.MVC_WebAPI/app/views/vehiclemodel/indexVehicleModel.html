@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body ng-app="vehicleApp">
+    <div class="container" style="margin-top:20px">
+        <table class="table table-bordered table-hover" ng-controller="vehicleModelController">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Maker</th>
+                    <th>Model</th>
+                    <th>Abrv</th>
+                    <th>Edit, Update & Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vehicleModels">
+                    <td>{{item.VehicleMake.Name}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Abrv}}</td>
+                    <td>
+                        <a>Edit</a>
+                        <a>Update</a>
+                        <a>Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

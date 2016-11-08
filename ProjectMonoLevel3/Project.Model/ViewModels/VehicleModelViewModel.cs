@@ -8,12 +8,12 @@ using Project.Model.Common;
 
 namespace Project.Model.ViewModels
 {
-    public class VehicleModelViewModel :  IVehicleModelViewModel
+    public class VehicleModelViewModel
     {
         public Guid VehicleModelId { get; set; }
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-        public virtual VehicleMake VehicleMake { get; set; }
+        public virtual VehicleMakeViewModel VehicleMake { get; set; }
     }
 }

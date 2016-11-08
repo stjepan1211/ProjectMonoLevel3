@@ -13,7 +13,7 @@ using Project.Model.DomainModels;
 
 namespace Project.MVC_WebAPI.Controllers
 {
-
+    [RoutePrefix("api/VehicleMake")]
     public class VehicleMakeController : ApiController
     {
         private IVehicleMakeService vmkService;
@@ -51,7 +51,7 @@ namespace Project.MVC_WebAPI.Controllers
         [Route("UpdateVmk")]
         public async Task<HttpResponseMessage> UpdateVehicleMake(Guid id, VehicleMakeViewModel vmkViewModel)
         {
-            IVehicleMakeViewModel vmkUpdate = Mapper.Map<IVehicleMakeViewModel>(await vmkService.FindVehicleMake(id));
+            VehicleMakeViewModel vmkUpdate = Mapper.Map<VehicleMakeViewModel>(await vmkService.FindVehicleMake(id));
             if (vmkViewModel.Name == null || vmkViewModel.Abrv == null)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Neispravan unos.");
@@ -71,7 +71,7 @@ namespace Project.MVC_WebAPI.Controllers
         [Route("DeleteVmk")]
         public async Task<HttpResponseMessage> DeleteVehicleMake(Guid id)
         {
-            IVehicleMakeViewModel vmkDelete = Mapper.Map<IVehicleMakeViewModel>(await vmkService.FindVehicleMake(id));
+            VehicleMakeViewModel vmkDelete = Mapper.Map<VehicleMakeViewModel>(await vmkService.FindVehicleMake(id));
             if (vmkDelete == null)
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Model nije pronađen.");
 

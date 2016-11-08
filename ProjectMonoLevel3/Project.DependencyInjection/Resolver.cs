@@ -30,8 +30,6 @@ namespace Project.DependencyInjection
             Bind<IVehicleModel>().To<VehicleModel>();
             Bind<IVehicleMakeDomainModel>().To<VehicleMakeDomainModel>();
             Bind<IVehicleModelDomainModel>().To<VehicleModelDomainModel>();
-            Bind<IVehicleMakeViewModel>().To<VehicleMakeViewModel>();
-            Bind<IVehicleModelViewModel>().To<VehicleModelViewModel>();
             Bind<IVehicleContext>().To<VehicleContext>();
 
             //throw new NotImplementedException();

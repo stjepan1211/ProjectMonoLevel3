@@ -13,6 +13,7 @@ namespace Project.Model.DomainModels
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-        public ICollection<VehicleModel> VehicleModel;
+
+        public ICollection<IVehicleModelDomainModel> VehicleModel { get; set; }
     }
 }

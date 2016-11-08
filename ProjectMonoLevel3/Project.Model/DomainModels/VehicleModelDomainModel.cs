@@ -14,6 +14,6 @@ namespace Project.Model.DomainModels
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-        public virtual VehicleMake VehicleMake { get; set; }
+        public virtual IVehicleMakeDomainModel VehicleMake { get; set; }
     }
 }

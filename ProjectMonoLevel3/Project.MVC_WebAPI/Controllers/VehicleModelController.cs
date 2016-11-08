@@ -12,20 +12,27 @@ using Project.Model.ViewModels;
 
 namespace Project.MVC_WebAPI.Controllers
 {
+    [RoutePrefix("api/VehicleModel")]
     public class VehicleModelController : ApiController
     {
         private IVehicleModelService vmlService;
-
-        public VehicleModelController(IVehicleModelService vmlService)
+        private IVehicleMakeService vmkService;
+        public VehicleModelController(IVehicleModelService vmlService, IVehicleMakeService vmkService)
         {
             this.vmlService = vmlService;
+            this.vmkService = vmkService;
         }
 
         [HttpGet]
         [Route("GetAllVml")]
         public async Task<HttpResponseMessage> GetAllVehicleModels()
         {
-            var vehicleModels = Mapper.Map<IEnumerable<IVehicleModelViewModel>>(await vmlService.GetVehicleModels());
+            var vehicleModels = Mapper.Map<IEnumerable<VehicleModelViewModel>>(await vmlService.GetVehicleModels());
+            //foreach (var item in vehicleModels)
+            //{
+            //    item.VehicleMake =
+            //        Mapper.Map<VehicleMakeViewModel>(await vmkService.FindVehicleMake(item.VehicleMakeId));
+            //}
             return Request.CreateResponse(HttpStatusCode.OK, vehicleModels);
         }
 
@@ -47,7 +54,7 @@ namespace Project.MVC_WebAPI.Controllers
         [Route("UpdateVml")]
         public async Task<HttpResponseMessage> UpdateVehicleModel(Guid id, VehicleModelViewModel vmlViewModel)
         {
-            IVehicleModelViewModel vmlUpdate = Mapper.Map<IVehicleModelViewModel>(await vmlService.FindVehicleModel(id));
+            VehicleModelViewModel vmlUpdate = Mapper.Map<VehicleModelViewModel>(await vmlService.FindVehicleModel(id));
             if (vmlViewModel.Name == null || vmlViewModel.Abrv == null)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Neispravan unos.");

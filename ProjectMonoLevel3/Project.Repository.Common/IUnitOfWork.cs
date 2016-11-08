@@ -11,6 +11,5 @@ namespace Project.Repository.Common
         Task<int> Complete();
         void Dispose(bool disposing);
         void Dispose();
-
     }
 }

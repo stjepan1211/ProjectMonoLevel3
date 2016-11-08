@@ -26,13 +26,6 @@ namespace Project.DAL
 
             //var vehicleModels = new List<VehicleModel>
             //{
-            //    new VehicleModel{VehicleMakeId=1,Name="Passat CC", Abrv="Unknown"},
-            //    new VehicleModel{VehicleMakeId=1,Name="Golf V", Abrv="Unknown"},
-            //    new VehicleModel{VehicleMakeId=2,Name="X6", Abrv="Unknown"},
-            //    new VehicleModel{VehicleMakeId=3,Name="Camaro", Abrv="Unknown"},
-            //    new VehicleModel{VehicleMakeId=4,Name="Concept One", Abrv="Unknown"},
-            //    new VehicleModel{VehicleMakeId=5,Name="A4", Abrv="Unknown"},
-            //    new VehicleModel{VehicleMakeId=5,Name="Q7", Abrv="Unknown"}
             //};
             //vehicleModels.ForEach(vmd => context.VehicleModels.Add(vmd));
             //context.SaveChanges();

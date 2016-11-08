@@ -15,6 +15,6 @@ namespace Project.Model.DatabaseModels
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-        public virtual VehicleMake VehicleMake { get; set; }
+        public IVehicleMake VehicleMake { get; set; }
     }
 }

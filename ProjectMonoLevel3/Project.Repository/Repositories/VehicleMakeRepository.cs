@@ -44,7 +44,15 @@ namespace Project.Repository.Repositories
         //GetAll
         public async Task<IEnumerable<IVehicleMakeDomainModel>> GetAll()
         {
-            return Mapper.Map<IEnumerable<VehicleMakeDomainModel>>(await _genericRepository.GetAll<VehicleMake>());
+            try
+            {
+                var response = Mapper.Map<IEnumerable<IVehicleMakeDomainModel>>(await _genericRepository.GetAll<VehicleMake>());
+                return response;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

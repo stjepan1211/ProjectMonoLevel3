@@ -1,5 +1,5 @@
 ﻿vehicleApp.controller('vehicleModelController', function ($scope, $http) {
-    $http.get('/GetAllVml')
+    $http.get('/api/VehicleModel/getAllVml')
     .success(function (response) {
         $scope.vehicleModels = response;
     })

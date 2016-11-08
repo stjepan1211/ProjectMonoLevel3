@@ -8,11 +8,11 @@ using Project.Model.DatabaseModels;
 
 namespace Project.Model.ViewModels
 {
-    public class VehicleMakeViewModel : IVehicleMakeViewModel
+    public class VehicleMakeViewModel
     {
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-        public ICollection<VehicleModel> VehicleModel;
+        public ICollection<VehicleModelViewModel> VehicleModel { get; set; }
     }
 }

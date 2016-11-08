@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using Project.DAL.Common;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
+using Project.Model.DatabaseModels;
 
 namespace Project.Repository.Repositories
 {
@@ -50,6 +51,11 @@ namespace Project.Repository.Repositories
         public async Task<IEnumerable<T>> GetAll<T>() where T : class
         {
             return await _context.Set<T>().ToListAsync();
+        }
+
+        public IQueryable<T> GetWhere<T>() where T : class
+        {
+            return _context.Set<T>();
         }
     }
 }
