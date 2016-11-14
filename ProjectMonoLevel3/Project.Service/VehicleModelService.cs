@@ -25,7 +25,8 @@ namespace Project.Service
         //Get
         public async Task<IVehicleModelDomainModel> FindVehicleModel(Guid id)
         {
-            return await vehicleModelRepository.Get(id);
+            var obj = await vehicleModelRepository.Get(id);
+            return obj;
         }
         //Update
         public async Task<int> EditVehicleModel(IVehicleModelDomainModel vehicleModel)

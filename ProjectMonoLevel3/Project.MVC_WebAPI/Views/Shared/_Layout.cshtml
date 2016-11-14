@@ -20,23 +20,23 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                    <li><a href="/#vehicleMake">Makers</a></li>
-                    <li><a href="/#vehicleModel">Models</a></li>
+                    <li><a  ui-sref="vehicleMake">Makers</a></li>
+                    <li><a ui-sref="vehicleModel">Models</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content" ui-view>
+    <div class="container body-content" ui-view="root">
 
-       @RenderBody()
+        @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

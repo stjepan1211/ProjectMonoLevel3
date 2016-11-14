@@ -1,0 +1,36 @@
+﻿<div ng-controller="vmlDeleteController" ng-init="deleteInit()">
+    <h4 style="margin-top:20px">Vehicle Model</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            Maker
+        </dt>
+
+        <dd>
+            {{deleteData.VehicleMake.Name}}
+        </dd>
+
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            {{deleteData.Name}}
+        </dd>
+
+        <dt>
+            Abrv
+        </dt>
+
+        <dd>
+            {{deleteData.Abrv}}
+        </dd>
+    </dl>
+
+    <form>
+        <div class="form-actions no-color" name="deleteVmlForm">
+            <input type="submit" value="Delete" class="btn btn-default" ng-click="deleteVml()" />
+        </div>
+    </form>
+</div>

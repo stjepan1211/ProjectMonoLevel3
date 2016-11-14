@@ -10,7 +10,7 @@ using Project.Model.DatabaseModels;
 using Project.DAL;
 using Project.DAL.Common;
 using Project.Model.DomainModels;
-using Project.Model.ViewModels;
+
 
 namespace Project.DependencyInjection
 {

@@ -14,6 +14,6 @@ namespace Project.Model.ViewModels
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-        public virtual VehicleMakeViewModel VehicleMake { get; set; }
+        public VehicleMakeViewModel VehicleMake { get; set; }
     }
 }

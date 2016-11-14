@@ -1,33 +1,31 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body ng-app="vehicleApp">
-    <div class="container" style="margin-top:20px">
-        <table class="table table-bordered table-hover" ng-controller="vehicleModelController">
-            <thead class="thead-inverse">
-                <tr>
-                    <th>Maker</th>
-                    <th>Model</th>
-                    <th>Abrv</th>
-                    <th>Edit, Update & Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in vehicleModels">
-                    <td>{{item.VehicleMake.Name}}</td>
-                    <td>{{item.Name}}</td>
-                    <td>{{item.Abrv}}</td>
-                    <td>
-                        <a>Edit</a>
-                        <a>Update</a>
-                        <a>Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+﻿<div ng-controller="vehicleModelController" class="container" style="margin-top:20px" ng-init="getAll()">
+    <div class="row">
+        <a class="col-md-8" ui-sref="vehicleModel.addVml">Create Vehicle Model</a>
+        <a ui-sref="vehicleModel" class="col-md-1 col-md-offset-2"><input type="submit" class="btn-info" value="Refresh" ng-click="getAll()"/></a>
     </div>
-</body>
-</html>
+    <table class="table table-bordered table-hover" style="margin-top:20px" >
+        <thead class="thead-inverse">
+            <tr>
+                <th>Maker</th>
+                <th>Model</th>
+                <th>Abrv</th>
+                <th>Edit, Details & Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vehicleModels">
+                <td>{{item.VehicleMake.Name}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.Abrv}}</td>
+                <td>
+                    <a ui-sref="vehicleModel.editVml({VmlId: item.VehicleModelId})">Edit</a>
+                    <a ui-sref="vehicleModel.detailsVml({VmlId: item.VehicleModelId})">Details</a>
+                    <a ui-sref="vehicleModel.deleteVml({VmlId: item.VehicleModelId})">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="container" ui-view="child">
+
+    </div>
+</div>

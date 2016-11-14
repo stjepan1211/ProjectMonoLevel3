@@ -8,12 +8,13 @@ using Project.Model.Common;
 
 namespace Project.Model.DatabaseModels
 {
-    public class VehicleMake : IVehicleMake
+    public class VehicleModel : IVehicleModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid VehicleModelId { get; set; }
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-
+        public virtual VehicleMake VehicleMake { get; set; }
     }
 }

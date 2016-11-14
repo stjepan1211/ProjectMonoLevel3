@@ -28,11 +28,7 @@ namespace Project.MVC_WebAPI.Controllers
         public async Task<HttpResponseMessage> GetAllVehicleModels()
         {
             var vehicleModels = Mapper.Map<IEnumerable<VehicleModelViewModel>>(await vmlService.GetVehicleModels());
-            //foreach (var item in vehicleModels)
-            //{
-            //    item.VehicleMake =
-            //        Mapper.Map<VehicleMakeViewModel>(await vmkService.FindVehicleMake(item.VehicleMakeId));
-            //}
+
             return Request.CreateResponse(HttpStatusCode.OK, vehicleModels);
         }
 

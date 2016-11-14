@@ -32,7 +32,8 @@ namespace Project.Repository.Repositories
         //Get
         public async Task<T> Get<T>(Guid id) where T : class
         {
-            return await _context.Set<T>().FindAsync(id);
+            var obj = await _context.Set<T>().FindAsync(id);
+            return obj;
         }
         //Delete
         public async Task<int> Delete<T>(Guid id) where T : class

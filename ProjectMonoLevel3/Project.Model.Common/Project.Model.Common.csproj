@@ -40,9 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IVehicleMake.cs" />
     <Compile Include="IVehicleMakeDomainModel.cs" />
-    <Compile Include="IVehicleModel.cs" />
     <Compile Include="IVehicleModelDomainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

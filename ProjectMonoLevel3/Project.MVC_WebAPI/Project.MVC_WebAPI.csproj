@@ -221,6 +221,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Automapper\AutpMapperConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VehicleMakeController.cs" />
     <Compile Include="Controllers\VehicleModelController.cs" />
@@ -228,12 +229,30 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VehicleMakeViewModel.cs" />
+    <Compile Include="ViewModels\VehicleModelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\controllers\vehicleMakeController.js" />
-    <Content Include="app\controllers\vehicleModelController.js" />
+    <Content Include="app\controllers\vehiclemake\vehicleMakeController.js" />
+    <Content Include="app\controllers\vehiclemake\vmkDeleteController.js" />
+    <Content Include="app\controllers\vehiclemake\vmkDetailsController.js" />
+    <Content Include="app\controllers\vehiclemake\vmkEditController.js" />
+    <Content Include="app\controllers\vehiclemodel\vehicleModelController.js" />
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\vehiclemake\vmkAddController.js" />
+    <Content Include="app\controllers\vehiclemodel\vmlAddController.js" />
+    <Content Include="app\controllers\vehiclemodel\vmlDeleteController.js" />
+    <Content Include="app\controllers\vehiclemodel\vmlDetailsController.js" />
+    <Content Include="app\controllers\vehiclemodel\vmlEditController.js" />
+    <Content Include="app\views\vehiclemake\addVehicleMake.html" />
+    <Content Include="app\views\vehiclemake\deleteVehicleMake.html" />
+    <Content Include="app\views\vehiclemake\detailsVehicleMake.html" />
+    <Content Include="app\views\vehiclemake\editVehicleMake.html" />
     <Content Include="app\views\vehiclemake\indexVehicleMake.html" />
+    <Content Include="app\views\vehiclemodel\addVehicleModel.html" />
+    <Content Include="app\views\vehiclemodel\deleteVehicleModel.html" />
+    <Content Include="app\views\vehiclemodel\detailsVehicleModel.html" />
+    <Content Include="app\views\vehiclemodel\editVehicleModel.html" />
     <Content Include="app\views\vehiclemodel\indexVehicleModel.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1077,8 +1096,17 @@
     <Content Include="Views\Home\MyIndex.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\DetailsTemp.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{1d4c4a87-063c-445e-b0bc-49c12cf721da}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.DAL.Common\Project.DAL.Common.csproj">
+      <Project>{2300f664-e8ea-41b6-a2e9-f3cad50b2731}</Project>
+      <Name>Project.DAL.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.DAL\Project.DAL.csproj">
       <Project>{81795689-0558-4c92-b679-abd9c6d20ccc}</Project>
       <Name>Project.DAL</Name>

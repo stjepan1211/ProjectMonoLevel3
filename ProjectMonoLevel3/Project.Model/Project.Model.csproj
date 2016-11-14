@@ -53,16 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseModels\VehicleMake.cs" />
-    <Compile Include="DatabaseModels\VehicleModel.cs" />
     <Compile Include="DomainModels\VehicleMakeDomainModel.cs" />
     <Compile Include="DomainModels\VehicleModelDomainModel.cs" />
-    <Compile Include="MappingConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\VehicleMakeViewModel.cs" />
-    <Compile Include="ViewModels\VehicleModelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Project.DAL.Common\Project.DAL.Common.csproj">
+      <Project>{2300f664-e8ea-41b6-a2e9-f3cad50b2731}</Project>
+      <Name>Project.DAL.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Model.Common\Project.Model.Common.csproj">
       <Project>{2a7ce0d6-2b53-4957-a2ce-2e0bcf4c9abd}</Project>
       <Name>Project.Model.Common</Name>

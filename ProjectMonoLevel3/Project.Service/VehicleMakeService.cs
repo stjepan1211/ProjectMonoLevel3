@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Project.Repository.Common;
 using Project.Model.Common;
 using Project.Service.Common;
-using Project.Model;
-using Project.Model.DatabaseModels;
 
 namespace Project.Service
 {

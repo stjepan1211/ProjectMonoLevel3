@@ -30,7 +30,8 @@ namespace Project.Repository.Repositories
         //Get
         public async Task<IVehicleModelDomainModel> Get(Guid id)
         {
-            return Mapper.Map<VehicleModelDomainModel>(await _genericRepository.Get<VehicleModel>(id));
+            var obj = await _genericRepository.Get<VehicleModel>(id);
+            return Mapper.Map<VehicleModelDomainModel>(obj);
         }
         //Update
         public async Task<int> Update(IVehicleModelDomainModel entity)

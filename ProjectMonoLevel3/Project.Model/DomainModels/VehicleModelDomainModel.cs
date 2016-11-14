@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Project.Model.DatabaseModels;
 using Project.Model.Common;
 
 namespace Project.Model.DomainModels
@@ -14,6 +13,6 @@ namespace Project.Model.DomainModels
         public Guid VehicleMakeId { get; set; }
         public string Name { get; set; }
         public string Abrv { get; set; }
-        public virtual IVehicleMakeDomainModel VehicleMake { get; set; }
+        public IVehicleMakeDomainModel VehicleMake { get; set; }
     }
 }

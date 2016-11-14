@@ -6,7 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Project.Model;
+using AutoMapper;
 
 namespace Project.MVC_WebAPI
 {
@@ -14,12 +14,19 @@ namespace Project.MVC_WebAPI
     {
         protected void Application_Start()
         {
+
+            Mapper.Initialize(cfg =>
+            cfg.AddProfiles(new[] {
+                typeof(Project.Model.MappingConfig ),
+                typeof(Project.MVC_WebAPI.Automapper.MappingConfig)
+                })
+            );
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            MappingConfig.RegisterMaps();
         }
     }
 }
