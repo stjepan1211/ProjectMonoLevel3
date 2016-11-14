@@ -31,7 +31,8 @@ namespace Project.MVC_WebAPI
             bundles.Add(new ScriptBundle("~/bundles/vehicleApp").Include(
                       "~/app/app.js",
                        "~/app/controllers/vehiclemake/*Controller.js",
-                      "~/app/controllers/vehiclemodel/*Controller.js"
+                      "~/app/controllers/vehiclemodel/*Controller.js",
+                      "~/app/js/dirPagination.js"
                 ));
         }
     }

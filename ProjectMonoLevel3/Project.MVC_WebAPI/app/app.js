@@ -1,4 +1,4 @@
-﻿var vehicleApp = angular.module('vehicleApp', ['ui.router']);
+﻿var vehicleApp = angular.module('vehicleApp', ['ui.router','angularUtils.directives.dirPagination']);
 
 vehicleApp.config(function ($stateProvider) {
 

@@ -3,17 +3,28 @@
         <a class="col-md-8" ui-sref="vehicleModel.addVml">Create Vehicle Model</a>
         <a ui-sref="vehicleModel" class="col-md-1 col-md-offset-2"><input type="submit" class="btn-info" value="Refresh" ng-click="getAll()"/></a>
     </div>
+
+    <div style="margin-top:10px">
+        <label>Search any:  <input ng-model="searchText" /></label>
+    </div>
+
     <table class="table table-bordered table-hover" style="margin-top:20px" >
         <thead class="thead-inverse">
             <tr>
-                <th>Maker</th>
-                <th>Model</th>
-                <th>Abrv</th>
+                <th ng-click="sortBy('VehicleMake.Name')">Maker
+                    <span class="glyphicon sort-icon" ng-show="propertyName == 'VehicleMake.Name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse} "></span>
+                </th>
+                <th ng-click="sortBy('Name')">Model
+                    <span class="glyphicon sort-icon" ng-show="propertyName == 'Name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse} "></span>
+                </th>
+                <th ng-click="sortBy('Abrv')">Abrv
+                    <span class="glyphicon sort-icon" ng-show="propertyName == 'Abrv'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse} "></span>
+                </th>
                 <th>Edit, Details & Delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in vehicleModels">
+            <tr ng-repeat="item in vehicleModels | filter:searchText | orderBy:propertyName:reverse">
                 <td>{{item.VehicleMake.Name}}</td>
                 <td>{{item.Name}}</td>
                 <td>{{item.Abrv}}</td>

@@ -8,4 +8,12 @@
             return "error";
         });
     }
+
+    $scope.propertyName = 'VehicleMake.Name';
+    $scope.reverse = false;
+
+    $scope.sortBy = function (propertyName) {
+        $scope.propertyName = propertyName;
+        $scope.reverse = !$scope.reverse;
+    }
 });

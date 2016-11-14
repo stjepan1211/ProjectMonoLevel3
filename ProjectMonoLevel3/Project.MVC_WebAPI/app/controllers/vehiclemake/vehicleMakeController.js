@@ -9,4 +9,12 @@
             return "error";
         });
     }
+
+    $scope.propertyName = 'Name';
+    $scope.reverse = false;
+
+    $scope.sortBy = function (propertyName) {
+        $scope.propertyName = propertyName;
+        $scope.reverse = !$scope.reverse;
+    }
 });

@@ -244,6 +244,7 @@
     <Content Include="app\controllers\vehiclemodel\vmlDeleteController.js" />
     <Content Include="app\controllers\vehiclemodel\vmlDetailsController.js" />
     <Content Include="app\controllers\vehiclemodel\vmlEditController.js" />
+    <Content Include="app\js\dirPagination.js" />
     <Content Include="app\views\vehiclemake\addVehicleMake.html" />
     <Content Include="app\views\vehiclemake\deleteVehicleMake.html" />
     <Content Include="app\views\vehiclemake\detailsVehicleMake.html" />
