@@ -9,7 +9,6 @@ using Project.Model.ViewModels;
 using AutoMapper;
 using System.Threading.Tasks;
 using Project.Model.Common;
-using Project.Model.DomainModels;
 
 namespace Project.MVC_WebAPI.Controllers
 {

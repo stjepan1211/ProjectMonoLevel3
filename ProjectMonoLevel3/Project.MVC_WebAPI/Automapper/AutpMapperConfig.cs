@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Project.Model.ViewModels;
-using Project.Model.DomainModels;
 using Project.Model.Common;
+using Project.Model.DomainModels;
 
 namespace Project.MVC_WebAPI.Automapper
 {

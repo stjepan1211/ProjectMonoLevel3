@@ -24,7 +24,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in vehicleModels | filter:searchText | orderBy:propertyName:reverse">
+            <tr dir-paginate="item in vehicleModels | filter:searchText | orderBy:propertyName:reverse | itemsPerPage:5">
                 <td>{{item.VehicleMake.Name}}</td>
                 <td>{{item.Name}}</td>
                 <td>{{item.Abrv}}</td>
@@ -36,6 +36,11 @@
             </tr>
         </tbody>
     </table>
+    <dir-pagination-controls max-size="10"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+
     <div class="container" ui-view="child">
 
     </div>

@@ -1097,7 +1097,6 @@
     <Content Include="Views\Home\MyIndex.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\DetailsTemp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.Common\Project.Common.csproj">
@@ -1107,10 +1106,6 @@
     <ProjectReference Include="..\Project.DAL.Common\Project.DAL.Common.csproj">
       <Project>{2300f664-e8ea-41b6-a2e9-f3cad50b2731}</Project>
       <Name>Project.DAL.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Project.DAL\Project.DAL.csproj">
-      <Project>{81795689-0558-4c92-b679-abd9c6d20ccc}</Project>
-      <Name>Project.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.DependencyInjection\Project.DependencyInjection.csproj">
       <Project>{df8eabf1-ce11-451f-ae88-d34759deb8f3}</Project>
